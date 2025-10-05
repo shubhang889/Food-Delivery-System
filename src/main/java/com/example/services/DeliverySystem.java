@@ -15,13 +15,13 @@ public class DeliverySystem {
     private PriorityQueue<Delivery> unpaidDeliveries = 
                         new PriorityQueue<>(Comparator.comparingLong(Delivery::getDeliveryEndTime));
 
-        public void addDriver(int driverId, double hourlyRate)  {
+    public void addDriver(int driverId, double hourlyRate)  {
         if (!drivers.containsKey(driverId)) {
-                        drivers.put(driverId, new Driver(driverId, hourlyRate));
+            drivers.put(driverId, new Driver(driverId, hourlyRate));
         }
     }
 
-        public void recordDelivery(int driverId, long startTime, long endTime)  {
+    public void recordDelivery(int driverId, long startTime, long endTime)  {
         Driver driver = drivers.get(driverId);
         if (driver != null) {
             long totalTime = endTime - startTime;
